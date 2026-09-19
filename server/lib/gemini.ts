@@ -107,8 +107,8 @@ Total Month Income: ${context.userProfile.currency} ${context.transactionsSummar
 Analyze spending leaks, recommend realistic category limit adjustments, and calculate a Financial Health Score (0-100). Output structured JSON adhering strictly to the schema.
 `;
 
-      let response;
-      const modelNames = ['gemini-3.6-flash', 'gemini-2.5-flash'];
+      let response: any;
+      const modelNames = ['gemini-2.5-flash', 'gemini-1.5-flash'];
       
       for (const model of modelNames) {
         try {
@@ -132,7 +132,7 @@ Analyze spending leaks, recommend realistic category limit adjustments, and calc
         }
       }
 
-      const responseText = response.text;
+      const responseText = response?.text;
       if (responseText) {
         const parsed = JSON.parse(responseText) as AIFinancialReportPayload;
         console.log('[AI] Successfully received and parsed audit from Gemini 2.5 Flash.');

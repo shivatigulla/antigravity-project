@@ -45,7 +45,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <div className="flex flex-col md:flex-row min-h-screen bg-dark-950 text-slate-100">
         {/* Sidebar Nav */}
         <SidebarNav
